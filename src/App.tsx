@@ -3,6 +3,8 @@ import { FC, useState } from 'react'
 import { FixedSizeList as List, FixedSizeGrid as Grid } from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
 
+import { setGlobalState, useGlobalState } from './states/index';
+
 import './style.scss'
 import Header from './components/Header';
 import Favorite from './components/Favorite';
@@ -19,8 +21,21 @@ function App() {
   const COLS_COUNT = 4
   const ROWS_COUNT = Math.ceil(data.length/COLS_COUNT)
 
+  const [favorites] = useGlobalState('favorites');
+  interface elProps {
+    id:number,
+    [propName: string]: any;
+  }
+  const addToFavorite = (id:number) => {
+    let favs = favorites;
+    if(!(favs.find((el:elProps) => el.id === id+1))) favs.push(data[id])
+    else {
+      const objWithIdIndex = favs.findIndex((obj:elProps) => obj.id === id+1);
+      favs.splice(objWithIdIndex, 1);
+    }
+    setGlobalState('favorites', favs)
+  }
   
-
 
   const Cell:FC<any> = ({ columnIndex, rowIndex, style}) => {
 
@@ -36,7 +51,7 @@ function App() {
         </p>
         <div className='card-footer'>
           <p className='card-price'>{`$ ${el.price}`}</p>
-          <span className='card-like-btn'>
+          <span className={`card-like-btn ${favorites.findIndex((el:elProps) => el.id === id+1) != -1 ? 'selected' : ''} `} onClick={()=> addToFavorite(id)} >
             <FavoriteIcon/>
           </span>
         </div>
@@ -47,7 +62,7 @@ function App() {
   
   return (
     <>
-    <Header title='Product list Page'/>
+    <Header title={`Product list Page `}/>
     <div className="wrapper">
 
       <Favorite/>
