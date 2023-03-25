@@ -1,0 +1,302 @@
+[
+    {
+        "id": 1,
+        "name": "Мясо",
+        "price": 120,
+        "src": "/static/1664999721058.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Мясо",
+        "price": 123,
+        "src": "/static/1665002854786.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Bloom's Bloomeos Duplex Vanilla",
+        "price": 14,
+        "src": "/static/1665003370090.jpeg"
+    },
+    {
+        "id": 4,
+        "name": "Mini Bagels Bread",
+        "price": 7.69,
+        "src": "/static/1665003872358.jpeg"
+    },
+    {
+        "id": 5,
+        "name": "Shloimys Sprinkles Cookies",
+        "price": 8.99,
+        "src": "/static/1665003905322.jpeg"
+    },
+    {
+        "id": 6,
+        "name": "Enfamil Milk-based Powder",
+        "price": 9.99,
+        "src": "/static/1665003943454.jpeg"
+    },
+    {
+        "id": 7,
+        "name": "Beigels Sponge Cake",
+        "price": 9.99,
+        "src": "/static/1665003969762.jpeg"
+    },
+    {
+        "id": 8,
+        "name": "Lender's Onion Bagel",
+        "price": 3.99,
+        "src": "/static/1665003999740.jpeg"
+    },
+    {
+        "id": 9,
+        "name": "Cauliflower Pretzels ",
+        "price": 4.69,
+        "src": "/static/1665004059527.jpeg"
+    },
+    {
+        "id": 10,
+        "name": "Reisman's Chocolate Danish",
+        "price": 3,
+        "src": "/static/1665004078252.jpeg"
+    },
+    {
+        "id": 11,
+        "name": "Green Grapes",
+        "price": 7,
+        "src": "/static/1665004416585.jpeg"
+    },
+    {
+        "id": 12,
+        "name": "Bunch Carrots",
+        "price": 8,
+        "src": "/static/1665004445457.jpeg"
+    },
+    {
+        "id": 13,
+        "name": "B&G Pickles, NY Deli Style, 32 Oz",
+        "price": 9,
+        "src": "/static/1665004505115.jpeg"
+    },
+    {
+        "id": 14,
+        "name": "Earth's Best  Organic, Apples & Bluberries, Stage 2, 2.5 Oz",
+        "price": 10,
+        "src": "/static/1665004574703.jpeg"
+    },
+    {
+        "id": 15,
+        "name": "Asian Pear",
+        "price": 6.45,
+        "src": "/static/1665004615310.jpeg"
+    },
+    {
+        "id": 16,
+        "name": "Califia Better Half Vanilla, 16.9 Oz",
+        "price": 7.9,
+        "src": "/static/1665004647500.jpeg"
+    },
+    {
+        "id": 17,
+        "name": "Bodek Cole Slaw Mix, 16 Oz",
+        "price": 8.35,
+        "src": "/static/1665004696732.jpeg"
+    },
+    {
+        "id": 18,
+        "name": "A&H Beef Salami",
+        "price": 13,
+        "src": "/static/1665004751511.jpeg"
+    },
+    {
+        "id": 19,
+        "name": "Lemons",
+        "price": 3.98,
+        "src": "/static/1665004783725.jpeg"
+    },
+    {
+        "id": 20,
+        "name": "Bnei Darom Green Olive Rings, 19.7 Oz",
+        "price": 3.98,
+        "src": "/static/1665004824069.jpeg"
+    },
+    {
+        "id": 21,
+        "name": "Macabee Bagel Pizza Fam Pack, 46 Oz",
+        "price": 16,
+        "src": "/static/1665004890349.jpeg"
+    },
+    {
+        "id": 22,
+        "name": "Avocad Jumbo",
+        "price": 7.99,
+        "src": "/static/1665004923702.jpeg"
+    },
+    {
+        "id": 23,
+        "name": "Green Cabbage",
+        "price": 3.99,
+        "src": "/static/1665004961687.jpeg"
+    },
+    {
+        "id": 24,
+        "name": "Red Cabbage",
+        "price": 3.99,
+        "src": "/static/1665004981799.jpeg"
+    },
+    {
+        "id": 25,
+        "name": "Broccoli Bunch",
+        "price": 7.99,
+        "src": "/static/1665005014481.jpeg"
+    },
+    {
+        "id": 26,
+        "name": "Cauliflower Head",
+        "price": 8.99,
+        "src": "/static/1665005040459.jpeg"
+    },
+    {
+        "id": 27,
+        "name": "Cilantro",
+        "price": 1.99,
+        "src": "/static/1665005075514.jpeg"
+    },
+    {
+        "id": 28,
+        "name": "Dill",
+        "price": 1.99,
+        "src": "/static/1665005102124.jpeg"
+    },
+    {
+        "id": 29,
+        "name": "Fresh Thyme",
+        "price": 2.99,
+        "src": "/static/1665005161907.jpeg"
+    },
+    {
+        "id": 30,
+        "name": "Green Kale",
+        "price": 3,
+        "src": "/static/1665005206580.jpeg"
+    },
+    {
+        "id": 31,
+        "name": "Beetology Whole Red Beets, 17.6 0Z",
+        "price": 4.99,
+        "src": "/static/1665005236330.jpeg"
+    },
+    {
+        "id": 32,
+        "name": "Beetology Whole Red Beets, 17.6 0Z",
+        "price": 4.99,
+        "src": "/static/1665005242801.jpeg"
+    },
+    {
+        "id": 33,
+        "name": "Bunch Beets",
+        "price": 1.89,
+        "src": "/static/1665005273163.jpeg"
+    },
+    {
+        "id": 34,
+        "name": "Gefen Organic Red Beets, 17.6 0Z",
+        "price": 1.99,
+        "src": "/static/1665005311562.jpeg"
+    },
+    {
+        "id": 35,
+        "name": "Eggplant",
+        "price": 1.5,
+        "src": "/static/1665005345128.jpeg"
+    },
+    {
+        "id": 36,
+        "name": "Phillips Gourmet Baby Bella Mushrooms, 10 Oz",
+        "price": 1.99,
+        "src": "/static/1665005436771.jpeg"
+    },
+    {
+        "id": 37,
+        "name": "Gevina Farms Greek 0% Apple Cinnamon, 5 Oz",
+        "price": 6.99,
+        "src": "/static/1665005600693.jpeg"
+    },
+    {
+        "id": 38,
+        "name": "Gevina 0% Light Greek Yogurt Mixed Berry, 5 Oz",
+        "price": 6.99,
+        "src": "/static/1665005623693.jpeg"
+    },
+    {
+        "id": 39,
+        "name": "Gevina 0% Light Greek Yogurt Vanilla, 5 Oz",
+        "price": 6.99,
+        "src": "/static/1665005657170.jpeg"
+    },
+    {
+        "id": 40,
+        "name": "Gevina Greek N Crunch Chocolate Corn Flakes, 4.5 Oz",
+        "price": 7,
+        "src": "/static/1665005684323.jpeg"
+    },
+    {
+        "id": 41,
+        "name": "Givat Yogolite Peach, 5 Oz",
+        "price": 3.99,
+        "src": "/static/1665005711281.jpeg"
+    },
+    {
+        "id": 42,
+        "name": "Dole Blueberries, 12 Oz",
+        "price": 5.99,
+        "src": "/static/1665005748123.jpeg"
+    },
+    {
+        "id": 43,
+        "name": "Pardes Farms Chopped Spinach, 24 Oz",
+        "price": 6.99,
+        "src": "/static/1665005781575.jpeg"
+    },
+    {
+        "id": 44,
+        "name": "Bodek Strawberries Frozen, 16 Oz",
+        "price": 4.99,
+        "src": "/static/1665005811111.jpeg"
+    },
+    {
+        "id": 45,
+        "name": "Carolina Long Grain White Rice, 5 Lb, 80 Oz",
+        "price": 3.99,
+        "src": "/static/1665005834967.jpeg"
+    },
+    {
+        "id": 46,
+        "name": "Blue Diamond Almond Breeze Almond Milk, Chocolate, 32 Oz",
+        "price": 4.69,
+        "src": "/static/1665005866586.jpeg"
+    },
+    {
+        "id": 47,
+        "name": "Bloom's Micro Pretzels, 1 Oz",
+        "price": 1,
+        "src": "/static/1665005895383.jpeg"
+    },
+    {
+        "id": 48,
+        "name": "Tropicana  Homestyle Orange Juice, 52 Oz",
+        "price": 3.59,
+        "src": "/static/1665005922897.jpeg"
+    },
+    {
+        "id": 49,
+        "name": "Arizona Half & Half  Lite, 128 OZ",
+        "price": 4,
+        "src": "/static/1665005964670.jpeg"
+    },
+    {
+        "id": 50,
+        "name": "Ceres Pear Fruit Juice, 33.8 Oz",
+        "price": 2.99,
+        "src": "/static/1665005997772.jpeg"
+    }
+]
