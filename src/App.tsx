@@ -5,7 +5,11 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 
 import './style.scss'
 import Header from './components/Header';
+import Favorite from './components/Favorite';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
+
+// const res = await fetch('https://testbackend.nc-one.com/image')
 const res = await fetch('src/list.json')
 const data = await res.json()
 console.log(data)
@@ -32,7 +36,9 @@ function App() {
         </p>
         <div className='card-footer'>
           <p className='card-price'>{`$ ${el.price}`}</p>
-          <span className='card-like-btn'></span>
+          <span className='card-like-btn'>
+            <FavoriteIcon/>
+          </span>
         </div>
       </div>
     </div>
@@ -43,6 +49,9 @@ function App() {
     <>
     <Header title='Product list Page'/>
     <div className="wrapper">
+
+      <Favorite/>
+
       <div className='list-div'>
         <AutoSizer >
           {({height, width}) => (
@@ -51,8 +60,8 @@ function App() {
               rowCount={ROWS_COUNT}
               height={height}
               width={width}
-              columnWidth={312}
-              rowHeight={450}
+              columnWidth={(width-80) / (COLS_COUNT)}
+              rowHeight={430}
               itemData={{ columnCount: COLS_COUNT, rowCount: ROWS_COUNT }}
             >
               {Cell}
