@@ -57,23 +57,6 @@ header {
 }
 
 
-.favorite-list-div {
-    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='30' ry='30' stroke='%23#{$customBorderColor}' stroke-width='2' stroke-dasharray='12' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
-    width: 307px;
-    margin-top: 100px;
-    position: absolute;
-    height: 550px;
-    padding: 45px 30px;
-
-    >p {
-        @include accentText();
-        font-size: 24px;
-        line-height: 36px;
-        text-transform:uppercase;
-    }
-}
-
-
 .wrapper {
     width: 90%;
     margin: 0 auto;
@@ -101,6 +84,7 @@ header {
     justify-content: start;
     align-items: center;
     flex-direction: column;
+    background-color: white;
     background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='30' ry='30' stroke='%23#{$customBorderColor}' stroke-width='1' stroke-dasharray='12' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
     margin: 5px 15px;
     width: $cardWidth;
@@ -132,21 +116,90 @@ header {
         font-size: 24px;
         line-height: 36px;
     }
-    .card-like-btn {
-        width: 30px;
-        height: 30px;
-        border-radius: 4px;
-        background-color: $yellowColor;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
+}
+.card-like-btn, .fav-like-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    background-color: $yellowColor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 
-        &:hover {
-            background-color: darken($yellowColor, 10);
-        }
+    &:hover {
+        background-color: darken($yellowColor, 10);
     }
-    .card-like-btn:not(.selected) svg path {
-        color: $bodyColor;
+}
+.card-like-btn:not(.selected) svg path, .fav-like-btn:not(.selected) svg path {
+    color: $bodyColor;
+}
+
+
+.favorite-list-div {
+    background-color: white;
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='30' ry='30' stroke='%23#{$customBorderColor}' stroke-width='2' stroke-dasharray='12' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+    width: 307px;
+    margin-top: 100px;
+    position: absolute;
+    height: 550px;
+    padding: 45px 30px;
+
+    >p {
+        @include accentText();
+        font-size: 24px;
+        line-height: 36px;
+        text-transform:uppercase;
     }
+}
+
+
+
+.fav-img img {
+    width: 108px;
+    border-radius: 30px;
+}
+
+.fav-list-item {
+    padding: 12px;
+    border-radius: 24px;
+    background-color: $bodyColor;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 15px;
+    width: calc(100% - 24px);
+}
+
+.fav-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+}
+.fav-title {
+    @include solidText();
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.favorite-list-content {
+    height: 100%;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.fav-price {
+    @include solidText();
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.fav-like-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
 }

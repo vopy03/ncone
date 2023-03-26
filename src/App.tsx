@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useEffect, useState, useCallback } from 'react'
 
 import { FixedSizeList as List, FixedSizeGrid as Grid } from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
@@ -9,6 +9,13 @@ import './style.scss'
 import Header from './components/Header';
 import Favorite from './components/Favorite';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+
+interface elProps {
+  id:number,
+  name:string,
+  price:number,
+  src:string
+}
 
 
 // const res = await fetch('https://testbackend.nc-one.com/image')
@@ -22,10 +29,14 @@ function App() {
   const ROWS_COUNT = Math.ceil(data.length/COLS_COUNT)
 
   const [favorites] = useGlobalState('favorites');
-  interface elProps {
-    id:number,
-    [propName: string]: any;
-  }
+
+  const [, updateState] = useState<Object>();
+  const forceUpdate = useCallback(() => updateState({}), []);
+
+  useEffect(() => {
+    console.log(favorites)
+  })
+
   const addToFavorite = (id:number) => {
     let favs = favorites;
     if(!(favs.find((el:elProps) => el.id === id+1))) favs.push(data[id])
@@ -51,7 +62,7 @@ function App() {
         </p>
         <div className='card-footer'>
           <p className='card-price'>{`$ ${el.price}`}</p>
-          <span className={`card-like-btn ${favorites.findIndex((el:elProps) => el.id === id+1) != -1 ? 'selected' : ''} `} onClick={()=> addToFavorite(id)} >
+          <span className={`card-like-btn ${favorites.findIndex((el:elProps) => el.id === id+1) != -1 ? 'selected' : ''} `} onClick={()=> { forceUpdate(); addToFavorite(id)}} >
             <FavoriteIcon/>
           </span>
         </div>
@@ -65,7 +76,7 @@ function App() {
     <Header title={`Product list Page `}/>
     <div className="wrapper">
 
-      <Favorite/>
+      <Favorite favorites={favorites} forceUpdate={forceUpdate} addToFavorite={addToFavorite}/>
 
       <div className='list-div'>
         <AutoSizer >
