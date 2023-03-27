@@ -9,6 +9,8 @@ import './style.scss'
 import Header from './components/Header';
 import Favorite from './components/Favorite';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { NavLink, useLoaderData, useOutlet, useOutletContext } from 'react-router-dom';
+
 
 interface elProps {
   id:number,
@@ -17,36 +19,21 @@ interface elProps {
   src:string
 }
 
+interface ctxProps {
+  data: elProps,
+  forceUpdate:() => void
+}
 
-// const res = await fetch('https://testbackend.nc-one.com/image')
-const res = await fetch('src/list.json')
-const data = await res.json()
-console.log(data)
 
 function App() {
-  
+    
+  const [data, forceUpdate, addToFavorite] = useOutletContext() as Array<any>;
+
   const COLS_COUNT = 4
   const ROWS_COUNT = Math.ceil(data.length/COLS_COUNT)
 
   const [favorites] = useGlobalState('favorites');
 
-  const [, updateState] = useState<Object>();
-  const forceUpdate = useCallback(() => updateState({}), []);
-
-  useEffect(() => {
-    console.log(favorites)
-  })
-
-  const addToFavorite = (id:number) => {
-    let favs = favorites;
-    if(!(favs.find((el:elProps) => el.id === id+1))) favs.push(data[id])
-    else {
-      const objWithIdIndex = favs.findIndex((obj:elProps) => obj.id === id+1);
-      favs.splice(objWithIdIndex, 1);
-    }
-    setGlobalState('favorites', favs)
-  }
-  
 
   const Cell:FC<any> = ({ columnIndex, rowIndex, style}) => {
 
@@ -58,11 +45,11 @@ function App() {
       <div className='list-item' >
         <img className='card-img' src={`https://testbackend.nc-one.com${el.src}`}/><br/>
         <p className='card-title'>
-          {el.name.length > 35 ? el.name.substring(0, 35)+'...'  : el.name}
+          <NavLink to={`/products/${el.id}`}>{el.name.length > 35 ? el.name.substring(0, 35)+'...'  : el.name}</NavLink>
         </p>
         <div className='card-footer'>
           <p className='card-price'>{`$ ${el.price}`}</p>
-          <span className={`card-like-btn ${favorites.findIndex((el:elProps) => el.id === id+1) != -1 ? 'selected' : ''} `} onClick={()=> { forceUpdate(); addToFavorite(id)}} >
+          <span className={`like-btn ${favorites.findIndex((el:elProps) => el.id === id+1) != -1 ? 'selected' : ''} `} onClick={()=> { forceUpdate(); addToFavorite(id)}} >
             <FavoriteIcon/>
           </span>
         </div>
@@ -73,29 +60,31 @@ function App() {
   
   return (
     <>
-    <Header title={`Product list Page `}/>
-    <div className="wrapper">
+      <Header title={`Product list Page `} />
+      <div className="wrapper">
 
-      <Favorite favorites={favorites} forceUpdate={forceUpdate} addToFavorite={addToFavorite}/>
+        <Favorite favorites={favorites} forceUpdate={forceUpdate} addToFavorite={addToFavorite} />
 
-      <div className='list-div'>
-        <AutoSizer >
-          {({height, width}) => (
-            <Grid
-              columnCount={COLS_COUNT}
-              rowCount={ROWS_COUNT}
-              height={height}
-              width={width}
-              columnWidth={(width-80) / (COLS_COUNT)}
-              rowHeight={430}
-              itemData={{ columnCount: COLS_COUNT, rowCount: ROWS_COUNT }}
-            >
-              {Cell}
-            </Grid>
-          )}
-        </AutoSizer>
+        <div className='right-content'>
+          <div className='list-div'>
+            <AutoSizer >
+              {({ height, width }) => (
+                <Grid
+                  columnCount={COLS_COUNT}
+                  rowCount={ROWS_COUNT}
+                  height={height}
+                  width={width}
+                  columnWidth={(width - 80) / (COLS_COUNT)}
+                  rowHeight={430}
+                  itemData={{ columnCount: COLS_COUNT, rowCount: ROWS_COUNT }}
+                >
+                  {Cell}
+                </Grid>
+              )}
+            </AutoSizer>
+          </div>
+        </div>
       </div>
-    </div>
     </>
   )
 }

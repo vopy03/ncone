@@ -20,6 +20,7 @@ $cardMargin: 15px;
     line-height: 30px;
     color: $textColor;
 }
+
 @mixin accentText {
     font-family: 'Anek Telugu';
     font-style: normal;
@@ -33,6 +34,7 @@ $cardMargin: 15px;
     padding: 0;
     color: $textColor;
 }
+
 body {
     // position: relative;
     background-color: $bodyColor;
@@ -46,13 +48,24 @@ header {
     display: flex;
     align-items: center;
     justify-content: end;
-    
+
     p {
         @include accentText();
         font-size: 32px;
         letter-spacing: 0.05em;
         text-transform: uppercase;
         margin-right: 5%;
+    }
+
+    a {
+        margin-left: 5%;
+        position: absolute;
+        left: 0;
+
+        svg {
+            width: 40px !important;
+            height: 40px !important;
+        }
     }
 }
 
@@ -63,13 +76,16 @@ header {
     display: flex;
 }
 
-.list-div {
+.right-content {
     position: absolute;
     right: 0;
     width: 70%;
-    height: calc(100% - $headerHeight)
-    // padding: 20px;
-    
+    height: calc(100% - $headerHeight);
+}
+
+.list-div {
+    width: 100%;
+    height: 100%;
 }
 
 .list-item-container {
@@ -98,9 +114,21 @@ header {
     height: 232px;
     object-fit: contain;
 }
+
 .card-title {
     @include solidText;
     width: 100%;
+}
+
+.card-title,
+.fav-title {
+    a {
+        text-decoration: none;
+
+        &:hover {
+            color: lighten($textColor, 10);
+        }
+    }
 }
 
 .card-footer {
@@ -110,6 +138,7 @@ header {
     justify-content: space-between;
     align-items: center;
     width: calc(100% - 32px);
+
     .card-price {
         @include solidText();
         font-weight: 500;
@@ -117,7 +146,8 @@ header {
         line-height: 36px;
     }
 }
-.card-like-btn, .fav-like-btn {
+
+.like-btn {
     width: 30px;
     height: 30px;
     border-radius: 4px;
@@ -131,16 +161,17 @@ header {
         background-color: darken($yellowColor, 10);
     }
 }
-.card-like-btn:not(.selected) svg path, .fav-like-btn:not(.selected) svg path {
+
+.like-btn:not(.selected) svg path {
     color: $bodyColor;
 }
-
 
 .favorite-list-div {
     background-color: white;
     background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='30' ry='30' stroke='%23#{$customBorderColor}' stroke-width='2' stroke-dasharray='12' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
     width: 307px;
     margin-top: 100px;
+    border-radius: 30px;
     position: absolute;
     height: 550px;
     padding: 45px 30px;
@@ -149,10 +180,9 @@ header {
         @include accentText();
         font-size: 24px;
         line-height: 36px;
-        text-transform:uppercase;
+        text-transform: uppercase;
     }
 }
-
 
 
 .fav-img img {
@@ -171,13 +201,15 @@ header {
     width: calc(100% - 24px);
 }
 
-.fav-info {
+.fav-info,
+.product-item-info {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 10px;
 }
+
 .fav-title {
     @include solidText();
     font-size: 16px;
@@ -197,9 +229,64 @@ header {
     line-height: 30px;
 }
 
-.fav-like-footer {
+.fav-like-footer,
+.product-item-like-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 80%;
+}
+
+.product-item-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+    width: 90%;
+    gap: 60px;
+}
+
+.product-item-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    img {
+        width: 448px;
+        height: 448px;
+    }
+
+    svg {
+        width: 76px;
+        height: 76px;
+    }
+}
+
+.product-item-title {
+    @include solidText();
+    font-size: 64px;
+    line-height: 96px;
+}
+
+.product-item-price {
+    @include solidText();
+    font-weight: 500;
+    font-size: 64px;
+    line-height: 96px;
+}
+
+.product-item-like-footer {
+
+    .like-btn {
+        width: 98px;
+        height: 98px;
+        border-radius: 12px;
+    }
+
+    .like-btn svg {
+        width: 76px;
+        height: 76px;
+    }
 }
