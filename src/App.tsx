@@ -1,15 +1,14 @@
-import { FC, useEffect, useState, useCallback } from 'react'
+import { FC } from 'react'
 
 import { FixedSizeList as List, FixedSizeGrid as Grid } from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
 
-import { setGlobalState, useGlobalState } from './states/index';
+import { useGlobalState } from './states/index';
 
-import './style.scss'
 import Header from './components/Header';
 import Favorite from './components/Favorite';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { NavLink, useLoaderData, useOutlet, useOutletContext } from 'react-router-dom';
+import { NavLink, useOutletContext } from 'react-router-dom';
 
 
 interface elProps {
@@ -19,13 +18,7 @@ interface elProps {
   src:string
 }
 
-interface ctxProps {
-  data: elProps,
-  forceUpdate:() => void
-}
-
-
-function App() {
+export default function App() {
     
   const [data, forceUpdate, addToFavorite] = useOutletContext() as Array<any>;
 
@@ -88,5 +81,3 @@ function App() {
     </>
   )
 }
-
-export default App

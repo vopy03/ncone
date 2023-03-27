@@ -1,5 +1,5 @@
-import { FC, useEffect, useState, useCallback } from 'react';
-import { setGlobalState, useGlobalState } from '../states/index';
+import { useEffect, useState, useCallback } from 'react';
+import { useGlobalState } from '../states/index';
 
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { NavLink } from 'react-router-dom';
@@ -19,9 +19,6 @@ interface componentProps {
 
 export default function Favorite(props: componentProps) {
     const [favorites] = useGlobalState('favorites')
-    useEffect(() => {
-        console.log(favorites)
-    })
 
     const [, updateState] = useState<Object>();
     const forceUpdate = useCallback(() => updateState({}), []);

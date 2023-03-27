@@ -1,13 +1,13 @@
-import { FC, useEffect, useState, useCallback } from 'react'
 
-import { setGlobalState, useGlobalState } from './states/index';
+import { useGlobalState } from './states/index';
 
-import './style.scss'
 import Header from './components/Header';
 import Favorite from './components/Favorite';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
-import { NavLink, useLoaderData, useOutletContext, useParams } from 'react-router-dom';
+import { useLoaderData, useOutletContext } from 'react-router-dom';
+
+import ReactImageMagnify from 'react-image-magnify';
 
 interface elProps {
   id: number,
@@ -16,13 +16,10 @@ interface elProps {
   src: string
 }
 
-
-
 export default function ProductPage(props: any) {
 
   const [data, forceUpdate, addToFavorite] = useOutletContext() as Array<any>;
 
-  const { pid } = useParams()
   const el = useLoaderData() as elProps;
 
   const [favorites] = useGlobalState('favorites');
@@ -36,14 +33,30 @@ export default function ProductPage(props: any) {
         <div className='right-content'>
           <div className='product-item-content'>
             <div className="product-item-img">
-              <img src={`https://testbackend.nc-one.com${el.src}`} alt={`${el.name} picture`} />
+              <ReactImageMagnify {...{
+                smallImage: {
+                  alt: el.name,
+                  isFluidWidth: true,
+                  src: `https://testbackend.nc-one.com${el.src}`,
+                },
+                largeImage: {
+                  src: `https://testbackend.nc-one.com${el.src}`,
+                  width: 1200,
+                  height: 1200
+                }
+              }} />
               <ZoomInIcon />
             </div>
             <div className="product-item-info">
               <p className="product-item-title">{el.name}</p>
               <div className="product-item-like-footer">
                 <p className="product-item-price">{`$ ${el.price}`}</p>
-                <div className={`like-btn ${favorites.findIndex((e: elProps) => e.id === el.id) != -1 ? 'selected' : ''} `} onClick={() => { forceUpdate(); addToFavorite(el.id - 1) }}><FavoriteIcon /></div>
+                <div 
+                  className={`like-btn ${favorites.findIndex((e: elProps) => e.id === el.id) != -1 ? 'selected' : ''} `} 
+                  onClick={() => { forceUpdate(); addToFavorite(el.id - 1) }}
+                >
+                    <FavoriteIcon />
+                </div>
               </div>
             </div>
           </div>
